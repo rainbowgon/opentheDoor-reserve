@@ -3,8 +3,8 @@ name: Reserving CI
 on:
   push:
     branches:
-    #   - main
-    #   - develop
+      - main
+      - develop
 
 env:
   S3_BUCKET_NAME: ssafy-otd-codedeploy
@@ -27,9 +27,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Install Dependencies
-        run: npm install
 
       - name: Make zip file
         run: zip -r ./$GITHUB_SHA.zip .
