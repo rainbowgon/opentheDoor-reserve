@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ROOT_PATH="/home/ubuntu/app"
+ROOT_PATH="/home/ubuntu/crawling"
 
 CONTAINER="crawling_container"
 IMAGE="crawling_image"
