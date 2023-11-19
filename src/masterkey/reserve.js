@@ -1,5 +1,4 @@
 import { createBrowser, createPage } from "../tools/browser.js";
-import RETURN_STATUS from "../tools/enum.js";
 
 const reserve = async ({
   targetUrl,
@@ -31,32 +30,34 @@ const reserve = async ({
 
     // 해당 시간 없는 경우, undefined 반환
     if (!aTag) {
-      return RETURN_STATUS.INVALID;
+      return false;
     }
 
     const isAvailable = await aTag.$eval("span", (el) => el.textContent.trim());
 
     // 이미 예약완료된 테마인 경우
-    if (isAvailable == "예약완료") return RETURN_STATUS.FAIL;
+    if (isAvailable == "예약완료") {
+      return false;
+    }
 
     await Promise.all([
       page.waitForSelector(".modal-content", { visible: true }),
-      await aTag.click(),
+      page.waitForSelector("button#booking_go"),
+      page.waitForSelector("input[name='user_name']"),
+      page.waitForSelector("input[name='user_phone']"),
+      aTag.click(),
     ]);
 
-    await page.waitForSelector("input[name='user_name']");
     await page.type("input[name='user_name']", bookerName);
-
-    await page.waitForSelector("input[name='user_phone']");
     await page.type("input[name='user_phone']", bookerPhoneNumber);
 
     // 예약 버튼 클릭
-    // page.click("#booking_go");
+    await page.click("button#booking_go");
 
-    return RETURN_STATUS.SUCCESS;
+    return true;
   } catch (error) {
     console.log(error);
-    return RETURN_STATUS.INVALID;
+    return false;
   } finally {
     await page.close();
     await browser.close();
@@ -66,8 +67,8 @@ const reserve = async ({
 reserve({
   targetUrl: "https://www.master-key.co.kr/booking/bk_detail?bid=11",
   themeTitle: "연애조작단",
-  targetDate: "2023-11-26",
-  targetTime: "13:35",
+  targetDate: "2023-11-25",
+  targetTime: "12:20",
   bookerName: "이남곤",
   bookerPhoneNumber: "01066111604",
 });
