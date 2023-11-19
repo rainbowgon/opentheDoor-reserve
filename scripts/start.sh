@@ -1,9 +1,9 @@
 #!/bin/bash
 
-ROOT_PATH="/home/ubuntu/app"
+ROOT_PATH="/home/ubuntu/reserving"
 
-CONTAINER="crawling_container"
-IMAGE="crawling_image"
+CONTAINER="reserving_container"
+IMAGE="reserving_image"
 
 REGION="ap-northeast-2"
 GROUP="ssafy-openthedoor-log-group"
