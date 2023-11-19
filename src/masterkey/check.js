@@ -55,8 +55,6 @@ const check = async ({
   }
 };
 
-check();
-
 const isReserved = (fromUser, fromSite, status) => {
   if (
     fromUser.themeTitle == fromSite.themeTitle &&

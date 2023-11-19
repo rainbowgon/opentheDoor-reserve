@@ -64,13 +64,4 @@ const reserve = async ({
   }
 };
 
-reserve({
-  targetUrl: "https://www.master-key.co.kr/booking/bk_detail?bid=11",
-  themeTitle: "연애조작단",
-  targetDate: "2023-11-25",
-  targetTime: "12:20",
-  bookerName: "이남곤",
-  bookerPhoneNumber: "01066111604",
-});
-
 export default reserve;
