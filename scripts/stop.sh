@@ -1,8 +1,8 @@
 #!/bin/bash
 
 STOP_LOG="$ROOT_PATH/stop.log"
-CONTAINER="crawling_container"
-IMAGE="crawling_image"
+CONTAINER="reserving_container"
+IMAGE="reserving_image"
 
 if docker container inspect "$CONTAINER" >/dev/null 2>&1; then
     echo "container exists locally" >> $STOP_LOG
