@@ -13,10 +13,6 @@ const PORT = 3000;
 
 app.post("/reserve/masterkey", async (req, res) => {
   const info = req.body;
-
-  console.log("Received request...");
-  console.log("Request Body: ", info);
-
   const response = await reserveMasterkey(info);
 
   res.json({
