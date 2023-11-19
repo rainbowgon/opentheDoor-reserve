@@ -10,3 +10,5 @@ const run = async (info) => {
 
   return await check(info);
 };
+
+export default run;
