@@ -3,7 +3,7 @@ os: linux
 
 files:
   - source: /
-    destination: /home/ubuntu/crawling
+    destination: /home/ubuntu/reserving
     overwrite: yes
 
 permissions:
