@@ -56,7 +56,6 @@ const reserve = async ({
 
     return true;
   } catch (error) {
-    console.log(error);
     return false;
   } finally {
     await page.close();
