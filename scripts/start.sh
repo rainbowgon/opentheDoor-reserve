@@ -19,3 +19,6 @@ docker run \
     --log-opt awslogs-stream="$STREAM" \
     -dp 3000:3000 --name "$CONTAINER" "$IMAGE"
 docker network connect "$NETWORK" "$CONTAINER"
+
+docker run -dp 3000:3000 --name reserving_container reserving_image
+docker network connect my-network reserving_container
