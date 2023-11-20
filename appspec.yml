@@ -17,4 +17,4 @@ hooks:
       timeout: 60
   ApplicationStart:
     - location: scripts/start.sh
-      timeout: 100
+      timeout: 120

@@ -30,6 +30,7 @@ const reserve = async ({
 
     // 해당 시간 없는 경우, undefined 반환
     if (!aTag) {
+      console.log("해당 시간대가 없습니다.");
       return false;
     }
 
@@ -37,6 +38,7 @@ const reserve = async ({
 
     // 이미 예약완료된 테마인 경우
     if (isAvailable == "예약완료") {
+      console.log("이미 예약완료된 테마, 시간대입니다.");
       return false;
     }
 
@@ -56,6 +58,7 @@ const reserve = async ({
 
     return true;
   } catch (error) {
+    console.error(error);
     return false;
   } finally {
     await page.close();
