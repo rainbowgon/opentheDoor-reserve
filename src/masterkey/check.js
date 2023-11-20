@@ -47,6 +47,7 @@ const check = async ({
 
     return false;
   } catch (error) {
+    console.error(error);
     return false;
   } finally {
     await page.close();

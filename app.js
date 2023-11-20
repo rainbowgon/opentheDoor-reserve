@@ -13,6 +13,9 @@ const PORT = 3000;
 
 app.post("/reserve/masterkey", async (req, res) => {
   const info = req.body;
+
+  console.log(info);
+
   const response = await reserveMasterkey(info);
 
   res.json({
