@@ -18,6 +18,8 @@ app.post("/reserve/masterkey", async (req, res) => {
 
   const response = await reserveMasterkey(info);
 
+  console.log("respone:", response);
+
   res.json({
     isSucceed: response,
   });
