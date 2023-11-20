@@ -1,5 +1,5 @@
 FROM node:18
-WORKDIR /crawling
+WORKDIR /reserving
 COPY . .
 RUN apt-get update && apt-get install gnupg wget -y && \
     wget --quiet --output-document=- https://dl-ssl.google.com/linux/linux_signing_key.pub | gpg --dearmor > /etc/apt/trusted.gpg.d/google-archive.gpg && \
