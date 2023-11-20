@@ -38,6 +38,7 @@ const reserve = async ({
 
     // 이미 예약완료된 테마인 경우
     if (isAvailable == "예약완료") {
+      console.log(isAvailable);
       console.log("이미 예약완료");
       return false;
     }
